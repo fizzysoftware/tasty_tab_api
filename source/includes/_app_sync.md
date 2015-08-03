@@ -1,10 +1,11 @@
 # App Sync
 
+
 ## Sync Restaurant Data
 
 ```json
 {
-  "access_token": "8de9358df65b86b643a206cb795355a2"
+  "access_token": "sample_api_access_token"
   "restaurant" {
     "id": 1
   }
@@ -14,7 +15,7 @@
 ```ruby
 require 'unirest'
 
-response = Unirest.get "http://localhost:3000/api/v1/24/app_sync.json?access_token=8de9358df65b86b643a206cb795355a2"
+response = Unirest.get "http://localhost:3000/api/v1/24/app_sync.json?access_token=sample_api_access_token"
 
 response.raw_body
 ```
@@ -54,14 +55,14 @@ response.raw_body
 ```
 
 
-The App Sync API will return entire restaurant hash in a nested & easy to parse format. This hash includes restaurant menus, menu categories, food .
+The App Sync API will return entire restaurant hash in a nested & easy to parse format. This hash includes restaurant menus, menu categories, foost
 
 
 These hash may contain duplicate data, so remember to remove any redundant data.
 
 ### HTTP Request
 
-`GET http://tastytab.com/api/v1/:id/app_sync?access_token=8de9358df65b86b643a206cb795355a2`
+`GET http://tastytab.com/api/v1/:id/app_sync?access_token=sample_api_access_token`
 
 
 Replace `:id` with restaurant id. Also, remember to replace access_token with your own access_token.
@@ -77,7 +78,7 @@ To optimize things try to set sync interval & sync time in accounts setting, and
 
 ```json
 {
-  "access_token": "8de9358df65b86b643a206cb795355a2"
+  "access_token": "sample_api_access_token"
   "restaurant" {
     "id": 2
   }
@@ -88,7 +89,7 @@ To optimize things try to set sync interval & sync time in accounts setting, and
 ```ruby
 require 'unirest'
 
-response = Unirest.get "http://tastytab.com/api/v1/restaurants/app_sync_with_android?access_token=8de9358df65b86b643a206cb795355a2"
+response = Unirest.get "http://192.34.57.207/api/v1/restaurants/app_sync_with_android?access_token=sample_api_access_token"
 
 response.raw_body
 ```
@@ -101,9 +102,9 @@ response.raw_body
     "name": "sagar ratna",
     "logo": {
         "logo": {
-            "url": "/uploads/restaurant/logo/2/f2.jpg",
+            "url": "http://192.34.57.207/uploads/restaurant/logo/2/f2.jpg",
             "thumb": {
-                "url": "/uploads/restaurant/logo/2/thumb_f2.jpg"
+                "url": "http://192.34.57.207/uploads/restaurant/logo/2/thumb_f2.jpg"
             }
         }
     },
@@ -121,9 +122,9 @@ response.raw_body
     "name": "sagar ratna",
     "logo": {
         "logo": {
-            "url": "/uploads/restaurant/logo/2/f2.jpg",
+            "url": "http://192.34.57.207/uploads/restaurant/logo/2/f2.jpg",
             "thumb": {
-                "url": "/uploads/restaurant/logo/2/thumb_f2.jpg"
+                "url": "http://192.34.57.207/uploads/restaurant/logo/2/thumb_f2.jpg"
             }
         }
     },
@@ -133,14 +134,14 @@ response.raw_body
 }
 
 ```
-The App Sync API will return entire restaurant hash in a nested & easy to parse format. This hash includes restaurant menus, menu categories, food
+The App Sync API will return entire restaurant hash in a nested & easy to parse format. This hash includes restaurant menus, menu categories, foost
 
 These hash may contain duplicate data, so remember to remove any redundant data.
 
 ### HTTP Request
 
-`GET http://tastytab.com/api/v1/restaurants/app_sync_with_android?access_token=8de9358df65b86b643a206cb795355a2`
+`GET http://192.34.57.207/api/v1/restaurants/app_sync_with_android?access_token=sample_api_access_token`
 
 Data will only be sent if it has changed since last sync. To check this it has android app sync token in restaurant table which will be updated whenever some changes made to food item table or any other tables such as food image  , menus , categories , review , tables , item modifiers etc .
 
-At the time of syncing the android developer has to enter android app sync token , if token matches with the token present in the database then it does not return any data, but if the token does not match or android developer does not provide any token then it will return entrie restaurant hash ..
+At the time of syncing the android developer has to enter android app sync token , if token matche with the token present in the database then there would no changes made , but if the token does not match or android developer does not provide any token then it will return entrie restaurant hash ..
