@@ -78,7 +78,11 @@ To optimize things try to set sync interval & sync time in accounts setting, and
 
 ```json
 {
- "access_token": "sample_api_access_token"
+  "access_token": "sample_api_access_token"
+  "restaurant" {
+    "id": 2
+  }
+  "app_sync_token" : "testing"
 }
 ```
 
@@ -130,7 +134,7 @@ response.raw_body
 }
 
 ```
-The App Sync API will return entire restaurant hash in a nested & easy to parse format. This hash includes restaurant menus, menu categories, food, item modifier groups with item modifiers
+The App Sync API will return entire restaurant hash in a nested & easy to parse format. This hash includes restaurant menus, menu categories, foost
 
 These hash may contain duplicate data, so remember to remove any redundant data.
 
